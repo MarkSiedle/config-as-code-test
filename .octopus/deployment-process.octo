@@ -25,23 +25,6 @@ process {
                     Channels = []
                     TenantTags = []
                     Packages {
-                        azurewebapp {
-                            Id = "f1560cd0-c6b6-46ca-91df-10a323ea074c"
-                            Name = "AzureWebApp"
-                            PackageId = "AzureWebApp"
-                            FeedId = "feeds-builtin"
-                            AcquisitionLocation = "Server"
-                            Properties {
-                                extract {
-                                    Key = "Extract"
-                                    Value = "True"
-                                }
-                                selectionmode {
-                                    Key = "SelectionMode"
-                                    Value = "immediate"
-                                }
-                            }
-                        }
                     }
                     Condition = "Success"
                     Properties {
