@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-1"
     OwnerId = "Projects-1"
     IsFrozen = false
-    Version = 4
+    Version = 5
     SpaceId = "Spaces-1"
     Steps {
         run_a_script {
@@ -64,6 +64,81 @@ process {
                 }
             }
             Properties {
+            }
+        }
+        deploy_a_package {
+            Id = "b33fbd7a-f17b-4bad-9205-9d60c6d9810d"
+            Name = "Deploy a Package"
+            Condition = "Success"
+            StartTrigger = "StartAfterPrevious"
+            PackageRequirement = "LetOctopusDecide"
+            Actions {
+                deploy_a_package {
+                    Id = "75a7c60d-c278-44ea-9c03-f0153d220556"
+                    Name = "Deploy a Package"
+                    ActionType = "Octopus.TentaclePackage"
+                    WorkerPoolVariable = ""
+                    Container {
+                    }
+                    IsDisabled = false
+                    IsRequired = false
+                    Environments = []
+                    ExcludedEnvironments = []
+                    Channels = []
+                    TenantTags = []
+                    Packages {
+                        item {
+                            Id = "961524fa-6803-4a0d-bb3a-3d516cd66a84"
+                            Name = ""
+                            PackageId = "AzureWebApp"
+                            FeedId = "feeds-builtin"
+                            AcquisitionLocation = "Server"
+                            Properties {
+                                selectionmode {
+                                    Key = "SelectionMode"
+                                    Value = "immediate"
+                                }
+                            }
+                        }
+                    }
+                    Condition = "Success"
+                    Properties {
+                        octopus.action.package.automaticallyrunconfigurationtransformationfiles {
+                            Key = "Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles"
+                            Value {
+                                Value = "True"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.package.automaticallyupdateappsettingsandconnectionstrings {
+                            Key = "Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings"
+                            Value {
+                                Value = "True"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.enabledfeatures {
+                            Key = "Octopus.Action.EnabledFeatures"
+                            Value {
+                                Value = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                    }
+                }
+            }
+            Properties {
+                octopus.action.targetroles {
+                    Key = "Octopus.Action.TargetRoles"
+                    Value {
+                        Value = "region"
+                        IsSensitive = false
+                        HasValue = true
+                    }
+                }
             }
         }
     }
