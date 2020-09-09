@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-1"
     OwnerId = "Projects-1"
     IsFrozen = false
-    Version = 7
+    Version = 8
     SpaceId = "Spaces-1"
     Steps {
         run_a_script {
@@ -25,6 +25,23 @@ process {
                     Channels = []
                     TenantTags = []
                     Packages {
+                        azurewebapp {
+                            Id = "b20bb98b-09fb-4ad2-adc5-eafacd7672cf"
+                            Name = "AzureWebApp"
+                            PackageId = "AzureWebApp"
+                            FeedId = "feeds-builtin"
+                            AcquisitionLocation = "Server"
+                            Properties {
+                                extract {
+                                    Key = "Extract"
+                                    Value = "True"
+                                }
+                                selectionmode {
+                                    Key = "SelectionMode"
+                                    Value = "immediate"
+                                }
+                            }
+                        }
                     }
                     Condition = "Success"
                     Properties {
