@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-1"
     OwnerId = "Projects-1"
     IsFrozen = false
-    Version = 6
+    Version = 7
     SpaceId = "Spaces-1"
     Steps {
         run_a_script {
@@ -20,7 +20,7 @@ process {
                     }
                     IsDisabled = false
                     IsRequired = false
-                    Environments = ["Dev", "Production", "FakeEnvironment Bro"]
+                    Environments = ["Dev", "Production"]
                     ExcludedEnvironments = []
                     Channels = []
                     TenantTags = []
@@ -55,7 +55,7 @@ process {
                         octopus.action.script.scriptbody {
                             Key = "Octopus.Action.Script.ScriptBody"
                             Value {
-                                Value = "'testing testing 123'"
+                                Value = "'testing testing 123a'"
                                 IsSensitive = false
                                 HasValue = true
                             }
