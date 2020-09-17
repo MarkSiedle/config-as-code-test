@@ -2,25 +2,25 @@ process {
     Id = "deploymentprocess-Projects-1"
     OwnerId = "Projects-1"
     IsFrozen = false
-    Version = 8
+    Version = 9
     SpaceId = "Spaces-1"
     Steps {
-        run_a_script {
+        run_a_scripta {
             Id = "bbe3a51d-3b3e-48a8-bc59-4815c1957a78"
-            Name = "Run a Script"
+            Name = "Run a Scripta"
             Condition = "Success"
             StartTrigger = "StartAfterPrevious"
             PackageRequirement = "LetOctopusDecide"
             Actions {
-                run_a_script {
+                run_a_scripta {
                     Id = "b2bded2f-33d6-48e2-a48b-b21f349587bc"
-                    Name = "Run a Script"
+                    Name = "Run a Scripta"
                     ActionType = "Octopus.Script"
                     Container {
                     }
                     IsDisabled = false
                     IsRequired = false
-                    Environments = ["Dev", "Production", "fakey"]
+                    Environments = ["Dev", "Production"]
                     ExcludedEnvironments = []
                     Channels = []
                     TenantTags = []
